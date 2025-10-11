@@ -20,7 +20,13 @@ export const ExpandableSection = ({
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
-    <section className="glass-card rounded-2xl p-8 md:p-12 animate-fade-in-up opacity-0 [animation-delay:calc(var(--index)*100ms)]" style={{ "--index": index } as React.CSSProperties}>
+    <section 
+      className="glass-card rounded-2xl p-8 md:p-12"
+      style={{ 
+        opacity: 0,
+        animation: `fade-in-up 0.6s ease-out ${index * 0.15}s forwards` 
+      }}
+    >
       <div className="flex flex-col md:flex-row gap-6 md:gap-8">
         <div className="flex-shrink-0">
           <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-primary/10 flex items-center justify-center glow-icon">
