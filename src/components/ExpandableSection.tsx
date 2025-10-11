@@ -63,15 +63,15 @@ export const ExpandableSection = ({
           
           <div className="space-y-4">
             {visibleContent.map((text, i) => (
-              <p key={i} className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+              <p key={i} className="text-lg md:text-xl text-muted-foreground/80 leading-relaxed">
                 {text}
               </p>
             ))}
             
             {isExpanded && (
-              <div className="space-y-4 animate-fade-in pt-4 border-t border-border/30">
+              <div className="expanded-content space-y-4 pt-6 mt-4 border-t border-gradient">
                 {expandedContent.map((text, i) => (
-                  <p key={i} className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+                  <p key={i} className="text-lg md:text-xl text-foreground/95 leading-relaxed">
                     {text}
                   </p>
                 ))}
