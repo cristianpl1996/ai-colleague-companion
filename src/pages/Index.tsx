@@ -178,7 +178,7 @@ const Index = () => {
       </section>
 
       {/* Content Sections */}
-      <div id="content" ref={sectionsRef} className="max-w-6xl mx-auto px-6 py-20 space-y-12">
+      <div id="content" ref={sectionsRef} className="max-w-6xl mx-auto px-6 py-20 space-y-8">
         {sections.map((section, index) => (
           <ExpandableSection
             key={index}

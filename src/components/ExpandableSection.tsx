@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronDown, LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -18,19 +18,41 @@ export const ExpandableSection = ({
   index,
 }: ExpandableSectionProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => {
+              setIsVisible(true);
+            }, index * 150);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [index]);
 
   return (
     <section 
-      className="glass-card rounded-2xl p-8 md:p-12"
-      style={{ 
-        opacity: 0,
-        animation: `fade-in-up 0.6s ease-out ${index * 0.15}s forwards` 
-      }}
+      ref={sectionRef}
+      className={`glass-card rounded-2xl p-8 md:p-12 transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
     >
       <div className="flex flex-col md:flex-row gap-6 md:gap-8">
         <div className="flex-shrink-0">
-          <div className="w-12 h-12 md:w-16 md:h-16 rounded-xl bg-primary/10 flex items-center justify-center glow-icon">
-            <Icon className="w-6 h-6 md:w-8 md:h-8 text-primary animate-glow" />
+          <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center glow-icon">
+            <Icon className="w-7 h-7 text-primary animate-glow" strokeWidth={1.5} />
           </div>
         </div>
         
