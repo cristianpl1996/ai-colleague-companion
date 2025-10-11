@@ -29,9 +29,10 @@ const sections = [
       "Los procesos digitales piensan, conversan y actúan."
     ],
     expanded: [
-      "Durante años digitalizamos tareas, pero siempre hubo alguien detrás del teclado.",
-      "Hoy la IA entiende, decide y actúa por sí misma.",
-      "La frontera entre herramienta y compañero desapareció: la tecnología ahora trabaja contigo."
+      "Durante décadas el software fue una herramienta pasiva. Dependía de que alguien lo usara para producir valor.",
+      "Pero la inteligencia artificial marcó un cambio irreversible: el software ahora entiende, decide y actúa.",
+      "Ya no 'ayudamos al sistema', sino que el sistema trabaja con nosotros.",
+      "El concepto de empleo empieza a transformarse: los humanos se vuelven estrategas, no operadores."
     ]
   },
   {
@@ -42,9 +43,10 @@ const sections = [
       "Por primera vez, la tecnología forma parte activa de la fuerza laboral."
     ],
     expanded: [
-      "Antes las empresas invertían millones en personas y poco en software.",
-      "Ahora ambos mundos colisionan: la inteligencia digital amplía la fuerza humana.",
-      "No se trata de reemplazar talento, sino de multiplicarlo."
+      "Por primera vez en la historia, la fuerza laboral humana y la digital colaboran en el mismo espacio.",
+      "No hablamos solo de automatizar tareas: hablamos de crear una nueva clase de trabajador — uno que no duerme, no se cansa y aprende de cada interacción.",
+      "Las empresas que entiendan esta fusión temprano tendrán una ventaja estructural: escalarán sin límites humanos.",
+      "La IA no reemplaza a las personas; las personas que usan IA reemplazarán a quienes no lo hagan."
     ]
   },
   {
@@ -56,9 +58,11 @@ const sections = [
       "El software es el servicio."
     ],
     expanded: [
-      "La IA ejecuta tareas completas, no solo las facilita.",
-      "Las empresas ya no compran herramientas, compran soluciones que trabajan.",
-      "Es el fin del software pasivo y el nacimiento del servicio autónomo."
+      "Antes, el software era una herramienta que necesitaba operadores humanos.",
+      "Ahora, el software es el operador, puede actuar solo.",
+      "No compramos acceso a una plataforma, compramos un resultado continuo, ejecutado por agentes inteligentes.",
+      "Este cambio redefine la economía digital: las empresas ya no venden 'software que ayuda', venden servicios que funcionan solos.",
+      "Es el salto de la herramienta al trabajador."
     ]
   },
   {
@@ -70,9 +74,8 @@ const sections = [
       "2️⃣ Servicios externos que operan 24/7."
     ],
     expanded: [
-      "Los colegas de IA son copilotos inteligentes que asisten humanos en tiempo real.",
-      "Los servicios de IA ejecutan flujos enteros con calidad humana y sin descanso.",
-      "Ambos transforman la manera en que producimos y servimos."
+      "El primer camino son los colegas de IA: copilotos digitales que aumentan la capacidad de los equipos humanos.",
+      "El segundo camino son los servicios de IA: empresas completas construidas sobre agentes autónomos, que automaizan los procesos de principio a fin."
     ]
   },
   {
@@ -83,9 +86,9 @@ const sections = [
       "Los servicios con IA operan con rentabilidad de software."
     ],
     expanded: [
-      "Los márgenes de servicio tradicionales (<30%) se acercan a los de SaaS (>80%).",
-      "Menos costos, más eficiencia, más escala.",
-      "La IA convierte la productividad en rentabilidad exponencial."
+      "Un agente de AI puede valer una fracción para una función de lo que puede valer un humano es decir que los márgenes del negocio se disparan.",
+      "Esto no solo genera empresas más rentables, sino más accesibles: el conocimiento, que antes dependía de expertos escasos, ahora se empaqueta en procesos automatizados.",
+      "La IA no elimina empleos, redistribuye valor y multiplica la productividad."
     ]
   },
   {
@@ -96,8 +99,11 @@ const sections = [
       "La IA prospera donde el trabajo es repetitivo o el talento escasea."
     ],
     expanded: [
-      "Los primeros sectores en adoptar IA son los que más se benefician del apalancamiento.",
-      "Donde hay alta carga operativa y baja personalización humana, la IA expande la calidad y la velocidad del servicio."
+      "La IA prospera donde el trabajo es repetitivo, el talento escaso y los datos abundan.",
+      "Por eso los primeros sectores en transformarse serán salud, educación, servicio al cliente, contabilidad.",
+      "Ejemplo: un agente puede responder 10.000 preguntas de tutores en el tiempo que un humano atiende 10.",
+      "La clave no está en reemplazar a las personas, sino en amplificar lo que pueden lograr.",
+      "Cada industria vivirá esta transición de forma distinta, pero inevitable."
     ]
   },
   {
@@ -109,9 +115,10 @@ const sections = [
       "El alma será la nueva interfaz."
     ],
     expanded: [
-      "La automatización del futuro no será fría.",
-      "Será empática, comprensiva y contextual.",
-      "El software con alma entiende errores, emociones y necesidades, elevando la experiencia humana."
+      "La automatización sin empatía fracasa.",
+      "El próximo salto no será técnico, será emocional: sistemas que entienden contexto, tono y estado del usuario.",
+      "El 'software con alma' no busca eficiencia mecánica, sino conexión humana.",
+      "Cuando una clínica, o una empresa logra que su IA se sienta humana, descubren que la tecnología no reemplaza la calidez: la escala."
     ]
   },
   {
@@ -122,8 +129,10 @@ const sections = [
       "Con IA pueden competir como grandes corporaciones."
     ],
     expanded: [
-      "Por primera vez, las pymes acceden al mismo nivel de inteligencia operativa que los gigantes.",
-      "La IA democratiza el crecimiento y les da voz en el nuevo mercado digital."
+      "Durante años, la innovación fue privilegio de las grandes empresas.",
+      "La IA cambió eso: hoy una clínica pequeña puede operar con la misma capacidad analítica de una multinacional.",
+      "Los agentes inteligentes democratizan la escala: automatizan tareas, analizan datos, generan contenido y aprenden de cada interacción.",
+      "La diferencia ya no será el tamaño del equipo, sino la inteligencia con la que se opera."
     ]
   }
 ];
