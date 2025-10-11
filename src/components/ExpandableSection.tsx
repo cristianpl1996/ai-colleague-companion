@@ -46,7 +46,7 @@ export const ExpandableSection = ({
     <section 
       ref={sectionRef}
       className={`glass-card rounded-2xl p-8 md:p-12 transition-all duration-700 ${
-        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+        isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
       }`}
     >
       <div className="flex flex-col md:flex-row gap-6 md:gap-8">

@@ -53,24 +53,131 @@ All colors MUST be HSL.
   body {
     @apply bg-background text-foreground;
     font-family: 'Space Grotesk', 'Inter', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(180deg, hsl(var(--dark-bg)) 0%, hsl(240 15% 8%) 50%, hsl(260 20% 10%) 100%);
+    background: hsl(var(--dark-bg));
     min-height: 100vh;
+    overflow-x: hidden;
   }
 }
 
 @layer utilities {
   .glow-text {
     text-shadow: 0 0 20px hsl(var(--neon-blue) / 0.5);
+    animation: text-shimmer 3s ease-in-out infinite;
   }
   
   .glow-icon {
     filter: drop-shadow(0 0 8px hsl(var(--neon-blue) / 0.6));
+    transition: all 0.3s ease;
+  }
+
+  .glow-icon:hover {
+    filter: drop-shadow(0 0 16px hsl(var(--neon-blue) / 0.9));
+    transform: scale(1.05) rotate(5deg);
   }
 
   .glass-card {
     background: linear-gradient(135deg, hsl(var(--dark-card) / 0.6) 0%, hsl(var(--dark-card) / 0.3) 100%);
     backdrop-filter: blur(10px);
     border: 1px solid hsl(var(--border) / 0.3);
+    box-shadow: 0 0 40px hsl(var(--primary) / 0.1);
+    position: relative;
+  }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.15), transparent 70%);
+    pointer-events: none;
+  }
+
+  .animated-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    background: 
+      linear-gradient(180deg, hsl(var(--dark-bg)) 0%, hsl(240 15% 8%) 50%, hsl(260 20% 10%) 100%);
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  .animated-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 20% 30%, hsl(195 100% 50% / 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, hsl(260 70% 60% / 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 50% 50%, hsl(180 100% 50% / 0.1) 0%, transparent 60%);
+    animation: gradient-rotate 20s ease-in-out infinite;
+  }
+
+  .particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .particle {
+    position: absolute;
+    width: 2px;
+    height: 2px;
+    background: hsl(var(--primary));
+    border-radius: 50%;
+    opacity: 0.6;
+    animation: float 8s ease-in-out infinite;
+  }
+
+  .floating-quote {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.15;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: hsl(var(--primary));
+    pointer-events: none;
+    animation: float-quote 6s ease-in-out infinite;
+  }
+
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.5), transparent);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .section-divider::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary)), transparent);
+    animation: sweep 3s ease-in-out infinite;
+  }
+
+  .parallax-layer {
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  .button-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .button-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: hsl(var(--primary) / 0.5);
+    border-radius: inherit;
+    filter: blur(10px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .button-glow:hover::before {
+    opacity: 1;
   }
   
   @keyframes fade-in-up {
@@ -81,6 +188,72 @@ All colors MUST be HSL.
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes text-shimmer {
+    0%, 100% {
+      text-shadow: 0 0 20px hsl(var(--neon-blue) / 0.5);
+    }
+    50% {
+      text-shadow: 0 0 30px hsl(var(--neon-blue) / 0.8), 0 0 40px hsl(var(--neon-blue) / 0.4);
+    }
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      filter: hue-rotate(0deg);
+    }
+    50% {
+      filter: hue-rotate(15deg);
+    }
+  }
+
+  @keyframes gradient-rotate {
+    0%, 100% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.1);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+      opacity: 0.6;
+    }
+    25% {
+      transform: translate(10px, -20px) scale(1.2);
+      opacity: 0.8;
+    }
+    50% {
+      transform: translate(-15px, -40px) scale(0.8);
+      opacity: 0.4;
+    }
+    75% {
+      transform: translate(20px, -60px) scale(1.1);
+      opacity: 0.7;
+    }
+  }
+
+  @keyframes float-quote {
+    0%, 100% {
+      transform: translateX(-50%) translateY(0);
+      opacity: 0.15;
+    }
+    50% {
+      transform: translateX(-50%) translateY(-10px);
+      opacity: 0.25;
+    }
+  }
+
+  @keyframes sweep {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
     }
   }
 }
