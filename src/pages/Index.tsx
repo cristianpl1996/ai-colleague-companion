@@ -2,31 +2,17 @@ import { useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { ExpandableSection } from "@/components/ExpandableSection";
 import { 
-  Handshake, 
   Settings, 
   Globe, 
-  RefreshCw, 
-  Users, 
+  Laptop, 
+  Bot, 
   TrendingUp, 
-  Building, 
+  Building2, 
   Sparkles, 
-  Rocket,
-  Bot
+  Rocket
 } from "lucide-react";
 
 const sections = [
-  {
-    icon: Handshake,
-    title: "La fuerza laboral de IA ya está aquí",
-    visible: [
-      "Estamos entrando en una nueva era: del software como servicio al servicio como software.",
-      "La IA no asiste al humano. Trabaja a su lado."
-    ],
-    expanded: [
-      "Durante años el software fue un asistente. Hoy hace el trabajo completo.",
-      "Este cambio marca el nacimiento de una nueva fuerza laboral: los colegas de IA."
-    ]
-  },
   {
     icon: Settings,
     title: "El cambio de era",
@@ -36,8 +22,9 @@ const sections = [
       "Los procesos digitales piensan, conversan y actúan."
     ],
     expanded: [
-      "Cada sistema requería humanos detrás. Ahora la IA entiende contexto, toma decisiones y ejecuta tareas.",
-      "La frontera entre empleado y herramienta desaparece."
+      "Durante años digitalizamos tareas, pero siempre hubo alguien detrás del teclado.",
+      "Hoy la IA entiende, decide y actúa por sí misma.",
+      "La frontera entre herramienta y compañero desapareció: la tecnología ahora trabaja contigo."
     ]
   },
   {
@@ -45,28 +32,30 @@ const sections = [
     title: "El nuevo mercado laboral",
     visible: [
       "El trabajo y el software están fusionándose.",
-      "La tecnología es parte activa de la fuerza laboral."
+      "Por primera vez, la tecnología forma parte activa de la fuerza laboral."
     ],
     expanded: [
-      "Antes las empresas invertían en talento humano. Hoy lo hacen en inteligencia digital.",
-      "El software y el trabajo se convierten en un solo mercado."
+      "Antes las empresas invertían millones en personas y poco en software.",
+      "Ahora ambos mundos colisionan: la inteligencia digital amplía la fuerza humana.",
+      "No se trata de reemplazar talento, sino de multiplicarlo."
     ]
   },
   {
-    icon: RefreshCw,
+    icon: Laptop,
     title: "De SaaS a 'Servicio como Software'",
     visible: [
-      "La IA transforma el modelo de negocio.",
-      "Ya no pagamos por usar software, sino por resultados.",
+      "Ya no pagamos por usar software.",
+      "Pagamos por resultados.",
       "El software es el servicio."
     ],
     expanded: [
-      "La IA convierte herramientas en servicios completos que ejecutan de principio a fin.",
-      "El valor se mide por impacto, no por licencias."
+      "La IA ejecuta tareas completas, no solo las facilita.",
+      "Las empresas ya no compran herramientas, compran soluciones que trabajan.",
+      "Es el fin del software pasivo y el nacimiento del servicio autónomo."
     ]
   },
   {
-    icon: Users,
+    icon: Bot,
     title: "Dos caminos hacia la fuerza laboral de IA",
     visible: [
       "Dos formas de integrar trabajadores de IA:",
@@ -74,8 +63,9 @@ const sections = [
       "2️⃣ Servicios externos que operan 24/7."
     ],
     expanded: [
-      "Colegas de IA: Copilotos como Devin (Cognition) o Hippocratic.ai que asisten humanos.",
-      "Servicios de IA: Plataformas como Smith.ai o Artisan que gestionan procesos enteros con calidad humana."
+      "Los colegas de IA son copilotos inteligentes que asisten humanos en tiempo real.",
+      "Los servicios de IA ejecutan flujos enteros con calidad humana y sin descanso.",
+      "Ambos transforman la manera en que producimos y servimos."
     ]
   },
   {
@@ -86,32 +76,35 @@ const sections = [
       "Los servicios con IA operan con rentabilidad de software."
     ],
     expanded: [
-      "Los márgenes de servicio (<30%) se transforman en márgenes tipo SaaS (>80%).",
-      "La IA amplifica resultados y reduce costos."
+      "Los márgenes de servicio tradicionales (<30%) se acercan a los de SaaS (>80%).",
+      "Menos costos, más eficiencia, más escala.",
+      "La IA convierte la productividad en rentabilidad exponencial."
     ]
   },
   {
-    icon: Building,
+    icon: Building2,
     title: "Dónde dominarán primero los trabajadores de IA",
     visible: [
-      "Los sectores más listos serán los primeros.",
-      "Salud, educación, servicio al cliente y construcción ya viven este cambio."
+      "Salud, educación, servicio al cliente y construcción ya viven este cambio.",
+      "La IA prospera donde el trabajo es repetitivo o el talento escasea."
     ],
     expanded: [
-      "La IA prospera donde el trabajo es repetitivo o costoso.",
-      "Aporta velocidad, personalización y disponibilidad continua."
+      "Los primeros sectores en adoptar IA son los que más se benefician del apalancamiento.",
+      "Donde hay alta carga operativa y baja personalización humana, la IA expande la calidad y la velocidad del servicio."
     ]
   },
   {
     icon: Sparkles,
     title: "El futuro cercano: Software con alma",
     visible: [
-      "Un gran servicio no solo es eficiente, es humano.",
-      "El software del futuro entenderá emoción y contexto."
+      "Un gran servicio no solo es eficiente.",
+      "Es humano.",
+      "El alma será la nueva interfaz."
     ],
     expanded: [
-      "La automatización del futuro será empática y adaptable.",
-      "El alma será la nueva interfaz entre humanos y máquinas."
+      "La automatización del futuro no será fría.",
+      "Será empática, comprensiva y contextual.",
+      "El software con alma entiende errores, emociones y necesidades, elevando la experiencia humana."
     ]
   },
   {
@@ -122,8 +115,8 @@ const sections = [
       "Con IA pueden competir como grandes corporaciones."
     ],
     expanded: [
-      "Los agentes de IA permiten automatizar, analizar y personalizar sin aumentar plantilla.",
-      "La IA democratiza el acceso al crecimiento."
+      "Por primera vez, las pymes acceden al mismo nivel de inteligencia operativa que los gigantes.",
+      "La IA democratiza el crecimiento y les da voz en el nuevo mercado digital."
     ]
   }
 ];
