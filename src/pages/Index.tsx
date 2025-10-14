@@ -276,16 +276,11 @@ const Index = () => {
                 <Button 
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 rounded-xl shadow-lg shadow-primary/50 hover:shadow-primary/70 transition-all"
+                  onClick={() => window.open("https://hubu.com.co?modal=true", "_blank")}
                 >
-                  Explorar casos reales
+                  RESERVAR UNA DEMOSTRACIÓN
                 </Button>
-                <Button 
-                  size="lg"
-                  variant="outline"
-                  className="border-primary text-primary hover:bg-primary/10 px-8 py-6 rounded-xl transition-all"
-                >
-                  Solicitar una demo
-                </Button>
+
               </div>
             </div>
           </section>
