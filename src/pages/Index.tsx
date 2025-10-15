@@ -241,10 +241,7 @@ const sections = [
   {
     icon: Building2,
     title: "Las Clínicas por fin tienen la oportunidad que siempre merecieron.",
-    visible: [
-      "Las clínicas, antes limitadas por personal, tiempo o presupuesto.",
-      "Ahora pueden expandirse sin límites con agentes inteligentes.",
-    ],
+    visible: [],
     expanded: [
       "Las clínicas, antes limitadas por personal, tiempo o presupuesto, ahora pueden expandirse sin límites con agentes inteligentes.",
       "La IA será su nueva fuerza laboral, estratégica, precisa y disponible 24/7.",

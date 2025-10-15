@@ -42,6 +42,8 @@ export const ExpandableSection = ({
     return () => observer.disconnect();
   }, [index]);
 
+  const isTitleOnly = visibleContent.length === 0;
+
   return (
     <section 
       ref={sectionRef}
@@ -49,46 +51,83 @@ export const ExpandableSection = ({
         isVisible ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
       }`}
     >
-      <div className="flex flex-col md:flex-row gap-6 md:gap-8">
-        <div className="flex-shrink-0">
-          <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center glow-icon">
-            <Icon className="w-7 h-7 text-primary animate-glow" strokeWidth={1.5} />
+      {isTitleOnly ? (
+        // Layout centrado solo para título (como hero)
+        <div className="text-center space-y-6">
+          <div className="flex justify-center mb-6">
+            <div className="w-16 h-16 rounded-full bg-primary/20 flex items-center justify-center glow-icon">
+              <Icon className="w-8 h-8 text-primary animate-glow" strokeWidth={1.5} />
+            </div>
           </div>
-        </div>
-        
-        <div className="flex-1 space-y-6">
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground glow-text">
+          
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-foreground glow-text leading-tight">
             {title}
           </h2>
           
-          <div className="space-y-4">
-            {visibleContent.map((text, i) => (
-              <p key={i} className="text-lg md:text-xl text-muted-foreground/80 leading-relaxed">
-                {text}
-              </p>
-            ))}
-            
-            {isExpanded && (
-              <div className="expanded-content space-y-4 pt-6 mt-4 border-t border-gradient">
-                {expandedContent.map((text, i) => (
-                  <p key={i} className="text-lg md:text-xl text-foreground/95 leading-relaxed">
-                    {text}
-                  </p>
-                ))}
-              </div>
-            )}
+          {isExpanded && (
+            <div className="expanded-content space-y-4 pt-6 mt-6 max-w-3xl mx-auto">
+              {expandedContent.map((text, i) => (
+                <p key={i} className="text-lg md:text-xl text-foreground/95 leading-relaxed">
+                  {text}
+                </p>
+              ))}
+            </div>
+          )}
+          
+          <div className="pt-4">
+            <Button
+              onClick={() => setIsExpanded(!isExpanded)}
+              variant="ghost"
+              className="group text-primary hover:text-primary hover:bg-primary/10 transition-all"
+            >
+              {isExpanded ? "Ver menos" : "Ver más"}
+              <ChevronDown className={`ml-2 h-4 w-4 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
+            </Button>
+          </div>
+        </div>
+      ) : (
+        // Layout estándar con ícono a la izquierda
+        <div className="flex flex-col md:flex-row gap-6 md:gap-8">
+          <div className="flex-shrink-0">
+            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center glow-icon">
+              <Icon className="w-7 h-7 text-primary animate-glow" strokeWidth={1.5} />
+            </div>
           </div>
           
-          <Button
-            onClick={() => setIsExpanded(!isExpanded)}
-            variant="ghost"
-            className="group text-primary hover:text-primary hover:bg-primary/10 transition-all"
-          >
-            {isExpanded ? "Ver menos" : "Ver más"}
-            <ChevronDown className={`ml-2 h-4 w-4 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
-          </Button>
+          <div className="flex-1 space-y-6">
+            <h2 className="text-2xl md:text-4xl font-bold text-foreground glow-text">
+              {title}
+            </h2>
+            
+            <div className="space-y-4">
+              {visibleContent.map((text, i) => (
+                <p key={i} className="text-lg md:text-xl text-muted-foreground/80 leading-relaxed">
+                  {text}
+                </p>
+              ))}
+              
+              {isExpanded && (
+                <div className="expanded-content space-y-4 pt-6 mt-4 border-t border-gradient">
+                  {expandedContent.map((text, i) => (
+                    <p key={i} className="text-lg md:text-xl text-foreground/95 leading-relaxed">
+                      {text}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
+            
+            <Button
+              onClick={() => setIsExpanded(!isExpanded)}
+              variant="ghost"
+              className="group text-primary hover:text-primary hover:bg-primary/10 transition-all"
+            >
+              {isExpanded ? "Ver menos" : "Ver más"}
+              <ChevronDown className={`ml-2 h-4 w-4 transition-transform duration-300 ${isExpanded ? "rotate-180" : ""}`} />
+            </Button>
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };
